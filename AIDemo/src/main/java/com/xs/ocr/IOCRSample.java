@@ -16,8 +16,14 @@ public class IOCRSample {
 		String accessToken = "";
 		//自定义模块templateSign 
 		String templateSign = "";
+		//返回字符串内容
 		String result = getResidencePermitOCR(filePath, accessToken, templateSign);
 		System.out.println(result);
+		//返回指定的对象属性内容
+		IOCRBean iocrBean = getResidencePermitOCRBean(filePath, accessToken, templateSign);
+		for (int i = 0; i < iocrBean.getData().getRet().size(); i++) {
+			System.out.println(iocrBean.getData().getRet().get(i).getWord_name()+":"+iocrBean.getData().getRet().get(i).getWord());
+		}
 	}
 	/**
 	 * 返回字符串结果
