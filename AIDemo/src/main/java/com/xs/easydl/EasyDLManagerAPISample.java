@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.xs.easydl.DatasetAddRequestParam.Labels;
+import com.xs.util.baidu.Base64Util;
+import com.xs.util.baidu.FileUtil;
 import com.xs.util.baidu.HttpUtil;
 
 /**
@@ -44,7 +47,21 @@ public class EasyDLManagerAPISample {
 		//{"dataset_id":20598,"log_id":1276713049}
 //		String result = labelList(ACCESS_TOKEN, TEXT_CLASSIFICATION,20567);//分类（标签）列表
 		//{"total_num":4,"results":[{"label_id":"5c075681ea934f0001324ae3","label_name":"woman","entity_count":949},{"label_id":"5c075672ea934f0001324ae1","label_name":"sport","entity_count":1083},{"label_id":"5c07566815d32b0001a275bc","label_name":"publish","entity_count":760},{"label_id":"5c075663ea934f0001324adc","label_name":"campus","entity_count":247}],"log_id":3295199978}
-		
+/***************************文本分类示例参数拼接******************************/		
+		/**
+			{
+		    "appendLabel": true, 
+		    "dataset_id": 20598, 
+		    "entity_content": "今天老师不在", 
+		    "entity_name": "20181205.txt", 
+		    "labels": [
+		        {
+		            "label_name": "campus"
+		        }
+		    ], 
+		    "type": "TEXT_CLASSIFICATION"
+			}
+		 */
 //		DatasetAddRequestParam addRequestParam = new DatasetAddRequestParam();
 //		addRequestParam.setType(TEXT_CLASSIFICATION);
 //		addRequestParam.setDataset_id(20598);
@@ -56,14 +73,51 @@ public class EasyDLManagerAPISample {
 //		labels.setLabel_name("campus");
 //		labelsList.add(labels);
 //		addRequestParam.setLabels(labelsList);
+/***************************物体检测示例参数拼接******************************/	
+		/**
+		{
+		    "appendLabel": true, 
+		    "dataset_id": 2803, 
+		    "entity_content": "图片的base64 不需要urlencode", 
+		    "entity_name": "whitefly127.jpg", 
+		    "labels": [
+		        {
+		            "height": 103, 
+		            "label_name": "whitefly", 
+		            "left": 221, 
+		            "top": 221, 
+		            "width": 208
+		        }
+		    ], 
+		    "type": "OBJECT_DETECTION"
+		}
+		 */
+		DatasetAddRequestParam addRequestParam = new DatasetAddRequestParam();
+		addRequestParam.setType(OBJECT_DETECTION);
+		addRequestParam.setDataset_id(2803);
+		addRequestParam.setAppendLabel(true);
+		//读取本地图片文件  并转base64 不需要urlencode
+		String imgPath = "G:/mnist_png/whitefly/whitefly127.jpg";
+		String imgbase64 = Base64Util.encode(FileUtil.readFileByBytes(imgPath));
+		addRequestParam.setEntity_content(imgbase64);
+		addRequestParam.setEntity_name("whitefly127.jpg");
+		List<Labels> labelsList = new ArrayList<DatasetAddRequestParam.Labels>();
+		Labels labels = new Labels();
+		labels.setLabel_name("whitefly");
+		labelsList.add(labels);
+		labels.setLeft(221);
+		labels.setTop(221);
+		labels.setWidth(208);
+		labels.setHeight(103);
+		addRequestParam.setLabels(labelsList);
 		//添加数据 测试为文本分类数据添加 
 //		String result = datasetAdd(ACCESS_TOKEN,addRequestParam);//添加数据
 		
 //		String result = datasetDel(ACCESS_TOKEN,TEXT_CLASSIFICATION,20642);//数据集删除
 		//{"log_id":2595666927}
-		String result = labelDel(ACCESS_TOKEN,TEXT_CLASSIFICATION,20598,"campus");//分类（标签）删除
+//		String result = labelDel(ACCESS_TOKEN,TEXT_CLASSIFICATION,20598,"campus");//分类（标签）删除
 		//{"log_id":119766394}
-		System.out.println(result);
+//		System.out.println(result);
 	}
 	/**
 	 * 分类（标签）删除
