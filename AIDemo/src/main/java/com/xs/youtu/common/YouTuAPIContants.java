@@ -13,4 +13,5 @@ public class YouTuAPIContants {
 	public final static String FACEPTU = "http://api.youtu.qq.com/cgi-bin/pitu_open_access_for_youtu.fcg";
 	public final static String OCRAPI_EHOCR = "https://api.youtu.qq.com/youtu/ocrapi/ehocr";
 	public final static String ARITHMETI_COCR = "https://api.youtu.qq.com/youtu/ocrapi/arithmeticocr";//速算题目识别
+	public final static String IDCARD_COCR = "https://api.youtu.qq.com/youtu/ocrapi/idcardocr";//身份证识别
 }
