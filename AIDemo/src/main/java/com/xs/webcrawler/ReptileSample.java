@@ -17,7 +17,7 @@ import com.alibaba.fastjson.JSON;
 public class ReptileSample {
 	
 	public static void main(String[] args) throws Exception {
-		String image = "G:/testimg/32801.jpg";
+		String image = "G:/testimg/aidemo.jpg";
 		ReptileBean bean = getApi(image,true);
 		System.out.println(getYanZhi(bean.getData().getSign()));
 	}
@@ -40,6 +40,7 @@ public class ReptileSample {
 	 */
 	public static ReptileBean getApi(String image,boolean isBean) throws Exception{
 		String result = getApi(image);
+		System.out.println(result);
 		ReptileBean bean = JSON.parseObject(result, ReptileBean.class);
 		return bean;
 	}
@@ -74,7 +75,9 @@ public class ReptileSample {
 			for (int i = 0; i < descFaceelements.size(); i++) {
 				descFace += descFaceelements.get(i).text()+"\t";
 			}
-			descFace = descFace.substring(0, descFace.indexOf("点击查看"));
+			if( descFace.contains("点击查看")){
+				descFace = descFace.substring(0, descFace.indexOf("点击查看"));
+			}
 		}
 		
 		YanZhiResult += "面部描述:"+descFace +"\n";
