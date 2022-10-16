@@ -17,7 +17,7 @@ public class ArithmeticOCRSample {
 		//string结果转bean读取
 		HandWritingOCRBean writingOCRBean = JSON.parseObject(result, HandWritingOCRBean.class);
 		for (int i = 0; i < writingOCRBean.getItems().size(); i++) {
-				String resultItem = writingOCRBean.getItems().get(i).getItem();
+				String resultItem = writingOCRBean.getItems().get(i).getItemstring();
 				if(resultItem.equals("YES")){
 					resultItem = "(√)";
 				}else{
