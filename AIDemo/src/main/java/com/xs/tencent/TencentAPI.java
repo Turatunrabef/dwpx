@@ -69,4 +69,6 @@ public class TencentAPI {
 	public static final String OCR_DRIVERLICENSEOCR="https://api.ai.qq.com/fcgi-bin/ocr/ocr_driverlicenseocr";
 	//智能鉴黄  识别一个图像是否为色情图像
 	public static final String VISION_PORN = "https://api.ai.qq.com/fcgi-bin/vision/vision_porn";
+	//手写文字识别
+    public static final String OCR_HANDWRITING = "https://api.ai.qq.com/fcgi-bin/ocr/ocr_handwritingocr";
 }
