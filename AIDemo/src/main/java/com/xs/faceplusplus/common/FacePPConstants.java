@@ -8,4 +8,5 @@ public class FacePPConstants {
 	public static final String API_KEY = "";//应用apikey
 	public static final String API_SECRET = "";//应用apisecret
 	public static final String FACE_DETECT_URL = "https://api-cn.faceplusplus.com/facepp/v3/detect";//人脸检测接口地址
+    public static final String FACE_MERGE_URL = "ttps://api-cn.faceplusplus.com/imagepp/v1/mergeface";//fpp人脸融合接口地址
 }
