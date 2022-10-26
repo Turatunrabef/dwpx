@@ -71,4 +71,5 @@ public class TencentAPI {
 	public static final String VISION_PORN = "https://api.ai.qq.com/fcgi-bin/vision/vision_porn";
 	//手写文字识别
     public static final String OCR_HANDWRITING = "https://api.ai.qq.com/fcgi-bin/ocr/ocr_handwritingocr";
+	public static final String VISION_OBJECTR = "https://api.ai.qq.com/fcgi-bin/vision/vision_objectr";
 }
