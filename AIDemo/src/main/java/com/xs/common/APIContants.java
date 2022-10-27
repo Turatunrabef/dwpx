@@ -38,6 +38,7 @@ public class APIContants {
 	//百度语音应用sercetkey
 	public static final String NLP_SERCET_KEY = "替换成自己相应的值";
 	public static final String NLP_TOKEN = "根据APIKEY & SERCERKEY生成ACCESSTOKEN";
-	
-	
+
+
+    public static final String UNIT_TOKEN = "";
 }
