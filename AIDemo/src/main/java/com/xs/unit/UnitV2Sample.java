@@ -9,6 +9,7 @@ import com.xs.pojo.unit.UnitV2RequestBean.ClientSession;
 import com.xs.pojo.unit.UnitV2RequestBean.QueryInfo;
 import com.xs.pojo.unit.UnitV2RequestBean.Request;
 import com.xs.util.baidu.HttpUtil4UNIT;
+
 /**
  * UNIT 2.0 API请求示例代码
  * @author 小帅丶

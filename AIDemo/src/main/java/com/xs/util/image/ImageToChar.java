@@ -247,7 +247,6 @@ public class ImageToChar {
 	/**
 	 * 图片转字符再保存为图片 只返回图片的base64
 	 * @param bi 原图
-	 * @param outPutPath
 	 * @return String
 	 */
 	public static String txtToImageByBase64(BufferedImage bi) {
